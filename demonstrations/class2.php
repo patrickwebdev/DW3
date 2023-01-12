@@ -1,4 +1,3 @@
- 
 <?php 
   // Basic Syntax
   // This is a one-line c++ style comment
