@@ -74,7 +74,7 @@
 
 <!-- HTML embedded within PHP -->
 <?php
-  echo "<h1>Hello again Quebec, now I'm Heading 1<h1>";
+  echo "<h1>Hello again Quebec, now I'm Heading 1</h1>";
   echo "<br/>"; 
 
   echo "<ul>"; 
