@@ -9,6 +9,7 @@ Note –
 <label for="inputfname" : indicates the input connected to this label; because the value of the for attribute is the value of the id attribute of the input. When the mouse cursor hover over this label, the borders of the corresponding input become bold 
 <input name="fname" : indicates the index used by the PHP superglobal array variable to save the data entered in this input when the form is submitted. Consequently, this index will be used to find this information by PHP. 
 
+<!--file name : class3a.php-->
 <!DOCTYPE html>
 <html>  
   <head>
@@ -47,6 +48,7 @@ PHP form handling located in a separate file and displayed in a separate page
 Note –
 The isset built-in function is used to check whether the user pressed the submit button identified by the name indicated in the form <input name="send".
 
+<!--file name : class3a_response.php-->
 <!DOCTYPE html>
 <html>  
   <head>
