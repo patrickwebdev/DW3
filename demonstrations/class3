@@ -1,0 +1,314 @@
+REMOVE THE TEXT OR COMMENT IT TO BE ABLE TO RUN THE CODE
+EXAMPLE 1
+HTML form located in a separate file and displayed in a separate page
+Note – 
+<form method="post" : indicates the PHP superglobal associative array variable (POST or GET) that is used to get values submitted via HTTP method.
+<form action="class3a_response.php" : indicates the file to access when a user press the submit button
+<label for="inputfname" : indicates the input connected to this label; because the value of the for attribute is the value of the id attribute of the input. When the mouse cursor hover over this label, the borders of the corresponding input become bold 
+<input name="fname" : indicates the index used by the PHP superglobal array variable to save the data entered in this input when the form is submitted. Consequently, this index will be used to find this information by PHP. 
+
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>HTML Embedded Form with echo and \</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>      
+    <h1>HTML Form and PHP Form Handling</h1>
+    <h2>Display <span class="form">Form</span> first and <span class="formhandling">Form Handling</span> next in different pages</h2>
+    <hr>
+    <h3>Input your name I'll display it</h3>
+    <!--Form--> 
+    <form id="form1" method="post" action="class3a_response.php" > <!--Beginning form tag-->
+      <!--Form fields to input data-->
+      <label for="inputfname">Enter your First Name</label> 
+      <br />
+      <input id="inputfname" type="text" name="fname" placeholder="your first name" required="required"> 
+      <br />
+      <label for="inputlname">Enter your Last Name</label> 
+      <br />
+      <input id="inputlname" type="text" name="lname" placeholder="your last name" required="required"> 
+      <br />
+      <!--Submit button to send form data-->    
+      <input id="submitbutton1" type="submit" name="send" value="SEND IT" />
+    </form> <!--Closing form tag-->
+  </body>
+</html>
+
+
+
+PHP form handling located in a separate file and displayed in a separate page
+Note –
+The isset built-in function is used to check whether the user pressed the submit button identified by the name indicated in the form <input name="send".
+
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>HTML Form and PHP Form Handling</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>            
+  <h1>HTML Form and PHP Form Handling</h1>
+    <h2>Display <span class="form">Form</span> first and <span class="formhandling">Form Handling</span> next in different pages</h2>
+    <hr>
+    <?php
+      //Form Handling
+      //Go below only after a user pressed the input button name="send" 
+      if (isset($_POST['send'])) {
+        //Assign to the php variable $firstname the data collected from the the input field form name="fname"  
+        $firstName = $_POST["fname"]; 
+        //Assign to the php variable $firstname the data collected from the the input field form name="lname"
+        $lastName = $_POST["lname"]; // index to find the values submitted in the input field form name="quantity"
+        //Display the data saved in the php variables 
+        echo"<h2 class=\"display-name\">Your name is : $firstName $lastName.</h2>";
+        echo"<h2 class=\"display-name\">Congratulation, it is beautiful!</h2>";    
+      }
+    ?>
+    <a href="http://localhost/dw3/demonstrations/class3a.html">BACK TO THE FORM</a>
+  </body>
+</html> 
+EXAMPLE 2
+HTML form and PHP form handling located in the same file and displayed in the same page
+Echo is used to display html
+
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>HTML Embedded Form with echo and \</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>
+    <?php         
+      echo "<h1>HTML Embedded Form with echo and \</h1>";
+      echo "<h2>Display both <span class=\"form\">Form</span> and <span class=\"formhandling\">Form Handling</span> in the same page</h2>";
+      echo "<hr>";
+      echo "<h3>Input your name I'll display it</h3>";
+      //Form 
+      echo "<form id=\"form1\" method=\"post\" action=\"class3b\" >"; //Beginning form tag
+          // Form fields to input data
+          echo "<label for=\"inputfname\">Enter your First Name</label>"; 
+          echo "<br />";
+          echo "<input id=\"inputfname\" type=\"text\" name=\"fname\" placeholder=\"your first name\" required=\"required\">"; 
+          echo "<br />";
+          echo "<label for=\"inputlname\">Enter your Last Name</label>"; 
+          echo "<br />";
+          echo "<input id=\"inputlname\" type=\"text\" name=\"lname\" placeholder=\"your last name\" required=\"required\">"; 
+          echo "<br />";
+          // Submit button to send form data    
+          echo "<input id=\"submitbutton1\" type=\"submit\" name=\"send\" value=\"SEND IT\" />"; 
+      echo "</form>"; //Closing form tag
+      //Form Handling
+      //Go below only after a user pressed the input button name="send" 
+      if (isset($_POST['send'])) {
+        //Assign to the php variable $firstname the data collected from the the input field form name="fname"  
+        $firstName = $_POST["fname"]; 
+        //Assign to the php variable $firstname the data collected from the the input field form name="lname"
+        $lastName = $_POST["lname"]; // index to find the values submitted in the input field form name="quantity"
+        //Display the data saved in the php variables 
+        echo"<h2 class=\"display-name\">Your name is : $firstName $lastName.</h2>";
+        echo"<h2 class=\"display-name\">Congratulation, it is beautiful!</h2>";    
+      }
+    ?>
+  </body>
+</html>
+ 
+EXAMPLE 3
+HTML form and PHP form handling located in the same file and displayed in the same page
+Heredoc (Here Document) is used to display html
+
+<?php
+echo <<<_END
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>PHP Form with Heredoc Operator</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>      
+    <h1>HTML Form and PHP Form Handling</h1>
+    <h2>Display <span class="form">Form</span> first and <span class="formhandling">Form Handling</span> next in different pages</h2>
+    <hr>
+    <h3>Input your name I'll display it</h3>
+    <!--Form--> 
+    <form id="form1" method="post" action="class3c.php" > <!--Beginning form tag-->
+      <!--Form fields to input data-->
+      <label for="inputfname">Enter your First Name</label> 
+      <br />
+      <input id="inputfname" type="text" name="fname" placeholder="your first name" required="required"> 
+      <br />
+      <label for="inputlname">Enter your Last Name</label> 
+      <br />
+      <input id="inputlname" type="text" name="lname" placeholder="your last name" required="required"> 
+      <br />
+      <!--Submit button to send form data-->    
+      <input id="submitbutton1" type="submit" name="send" value="SEND IT" />
+    </form> <!--Closing form tag-->
+  </body>
+</html>
+_END;
+      //Form Handling
+      //Go below only after a user pressed the input button name="send" 
+      if (isset($_POST['send'])) {
+        //Assign to the php variable $firstname the data collected from the the input field form name="fname"  
+        $firstName = $_POST["fname"]; 
+        //Assign to the php variable $firstname the data collected from the the input field form name="lname"
+        $lastName = $_POST["lname"]; // index to find the values submitted in the input field form name="quantity"
+        //Display the data saved in the php variables 
+        echo"<h2 class=\"display-name\">Your name is : $firstName $lastName.</h2>";
+        echo"<h2 class=\"display-name\">Congratulation, it is beautiful!</h2>";    
+      }  
+echo <<<_END
+  </body>
+</html>
+_END;
+?>
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+EXAMPLE 4
+HTML form and PHP form handling located in the same file but displayed in two separate pages
+<?php
+if (!isset($_POST['send'])) {
+echo <<<_END
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>PHP Form with Heredoc Operator</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+    </style>
+  </head>
+  <body>      
+    <h1>HTML Form and PHP Form Handling</h1>
+    <h2>Display <span class="form">Form</span> first and <span class="formhandling">Form Handling</span> next in different pages</h2>
+    <hr>
+    <h3>Input your name I'll display it</h3>
+    <!--Form--> 
+    <form id="form1" method="post" action="class3d.php" > <!--Beginning form tag-->
+      <!--Form fields to input data-->
+      <label for="inputfname">Enter your First Name</label> 
+      <br />
+      <input id="inputfname" type="text" name="fname" placeholder="your first name" required="required"> 
+      <br />
+      <label for="inputlname">Enter your Last Name</label> 
+      <br />
+      <input id="inputlname" type="text" name="lname" placeholder="your last name" required="required"> 
+      <br />
+      <!--Submit button to send form data-->    
+      <input id="submitbutton1" type="submit" name="send" value="SEND IT" />
+    </form> <!--Closing form tag-->
+  </body>
+</html>
+_END;
+}
+
+//Form Handling
+//Go below only after a user pressed the input button name="send" 
+else {
+echo <<<_END
+  <!DOCTYPE html>
+  <html>  
+  <head>
+    <title>HTML Form and PHP Form Handling</title>
+    <style>
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>      
+    <h1>HTML Form and PHP Form Handling</h1>
+    <h2>Display <span class="form">Form</span> first and <span class="formhandling">Form Handling</span> next in different pages</h2>
+    <hr>
+  _END;
+    //Assign to the php variable $firstname the data collected from the the input field form name="fname"  
+    $firstName = $_POST["fname"]; 
+    //Assign to the php variable $firstname the data collected from the the input field form name="lname"
+    $lastName = $_POST["lname"]; // index to find the values submitted in the input field form name="quantity"
+    //Display the data saved in the php variables 
+    echo"<h2 class=\"display-name\">Your name is : $firstName $lastName.</h2>";
+    echo"<h2 class=\"display-name\">Congratulation, it is beautiful!</h2>";     
+echo <<<_END
+    <a href="http://localhost/dw3/demonstrations/class3d">BACK TO THE FORM</a>
+  </body>
+</html>
+_END;
+} 
+?>
+
+
+
+ 
+EXAMPLE 5
+GET is used now, while POST was used in all the previous examples
+
+<!DOCTYPE html>
+<html>  
+  <head>
+    <title>HTML Embedded Form with echo and \</title>
+    <style>
+      .form{color:blue;}
+      .formhandling{color:red;}
+      .display-name{color:green;}
+    </style>
+  </head>
+  <body>
+    <?php         
+      echo "<h1>HTML Embedded Form with echo and \</h1>";
+      echo "<h2>Display both <span class=\"form\">Form</span> and <span class=\"formhandling\">Form Handling</span> in the same page</h2>";
+      echo "<hr>";
+      echo "<h3>Input your name I'll display it</h3>";
+      //Form 
+      echo "<form id=\"form1\" method=\"get\" action=\"class3e\" >"; //Beginning form tag
+          // Form fields to input data
+          echo "<label for=\"inputfname\">Enter your First Name</label>"; 
+          echo "<br />";
+          echo "<input id=\"inputfname\" type=\"text\" name=\"fname\" placeholder=\"your first name\" required=\"required\">"; 
+          echo "<br />";
+          echo "<label for=\"inputlname\">Enter your Last Name</label>"; 
+          echo "<br />";
+          echo "<input id=\"inputlname\" type=\"text\" name=\"lname\" placeholder=\"your last name\" required=\"required\">"; 
+          echo "<br />";
+          // Submit button to send form data    
+          echo "<input id=\"submitbutton1\" type=\"submit\" name=\"send\" value=\"SEND IT\" />"; 
+      echo "</form>"; //Closing form tag
+      //Form Handling
+      //Go below only after a user pressed the input button name="send" 
+      if (isset($_GET['send'])) {
+        //Assign to the php variable $firstname the data collected from the the input field form name="fname"  
+        $firstName = $_GET["fname"]; 
+        //Assign to the php variable $firstname the data collected from the the input field form name="lname"
+        $lastName = $_GET["lname"]; // index to find the values submitted in the input field form name="quantity"
+        //Display the data saved in the php variables 
+        echo"<h2 class=\"display-name\">Your name is : $firstName $lastName.</h2>";
+        echo"<h2 class=\"display-name\">Congratulation, it is beautiful!</h2>";    
+      }
+    ?>
+  </body>
+</html>
+
