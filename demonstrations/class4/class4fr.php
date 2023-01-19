@@ -38,9 +38,9 @@
     if ($user_number>0){
         echo"Vous avez écrit un nombre positif<br/>";
     }elseif ($user_number==0){
-        echo"Vous avez écrit un nombre négatif<br/>";
-    }else{
         echo"Vous avez écrit un nombre nul<br/>";
+    }else{
+        echo"Vous avez écrit un nombre negatif<br/>";
     }
  
     /*
