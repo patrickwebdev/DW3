@@ -83,6 +83,10 @@ echo $now['hours']."<br>";
 echo $now['minutes']."<br>";
 echo $now['seconds']."<br>";
 
+//All the information in getdate()
+foreach ($now as $index => $info)
+    echo "$index: $info <br/>";
+
 echo"<br/>";
 
 //7-CHECKING FOR THE VALIDITY OF A DATE
