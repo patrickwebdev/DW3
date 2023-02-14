@@ -16,7 +16,7 @@ class Students
     return $this->last_name;
   }
 
-  public function setId()
+  private function setId()
   {
     $id=rand();
     return $id; 
