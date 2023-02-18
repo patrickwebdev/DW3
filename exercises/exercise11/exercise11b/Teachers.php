@@ -1,4 +1,5 @@
-<?php    
+<?php   
+    //exercise11b.php
     //Create the class Teachers
     class Teachers{
       private $first_name;
